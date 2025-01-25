@@ -1,2 +1,2 @@
 # -gui-implementation
-2d ui  impimented with directx and c++
+2d ui  implementation with directx and c++
