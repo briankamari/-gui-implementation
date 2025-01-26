@@ -272,12 +272,11 @@ bool ui_text::genforegroundbuffer(){
 		if( (m_strings[line].m_count>0) && (int(m_strings[line].m_count)-int(m_hscroll))>0 ){
 			
 			uint32_t available = uint32_t(m_width/m_font_width);
-			uint32_t char_count = m_strings[line].m_count>available?available:m_strings[line].m_count;
+			uint32_t line_count = m_strings[line].m_count-m_hscroll;
+			uint32_t char_count = line_count>available?available:line_count;
 			for(uint32_t i=0;i<char_count;i++){
 
 				_vec2 character = ui::s_font_vectors[ m_strings[line][i+m_hscroll] ];
-
-				uint32_t x_scroll = uint32_t(m_x - (m_hscroll*m_font_width) );
 
 				_vec3 vertex_up_left    = _vec3( x+i*m_font_width              , y+(m_font_height*l)               ,0);
 				_vec3 vertex_up_right   = _vec3( x+i*m_font_width+m_font_width , y+(m_font_height*l)               ,0);
